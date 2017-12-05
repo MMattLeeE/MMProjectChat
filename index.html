@@ -4,25 +4,83 @@
         <meta charset="UTF-8">
         <title>M&M Chat Project</title>
 
-    </head>
-    <body>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="javascript/chatRoom.js"></script>
+    </head>
+
+    <style>
+        * {
+            font-family: Menlo;
+            font-style: normal;
+        }
+
+        .rmContainer {
+            padding-top: 1%;
+            padding-left: 5%;
+        }
+
+        #login {
+            padding: 5px;
+            font-size: xx-small;
+        }
+
+        .msgContainer > .msglog {
+            width: 360px;
+            height: 400px;
+            border: 2px solid #000;
+            border-radius: 2px;
+            background-color: rgba(128, 128, 128, 0.6);
+
+            color: whitesmoke;
+            overflow-y: scroll;
+
+            font-size: x-small;
+            padding-top: 1px;
+            padding-left: 7px;
+        }
+
+        .msgContainer > .msginput input[id="msg"] {
+            height: 15px;
+            border: 1px solid rgb(128, 128, 128);
+            border-radius: 5px;
+        }
+
+        .msgContainer > .msginput input[type="submit"] {
+            padding: 3px;
+            background-color: rgba(128, 128, 128, 0.6);
+            color: whitesmoke;
+        }
+    </style>
+    <!--
+        Currently, the body uses three functions, checkUser() under login form, displayTime()
+        under msglog, and welcomeUser() under msglog. First function, checkUser, is used to check
+        if the username contains numbers or special characters. Section function, displayTime,
+        displays the current time when the user successfully logs in.
+    -->
+    <body>
+        <div class="rmContainer">
+            <div class="rmHeader">
+                <h2>Welcome to M&M Chat Project!</h2>
+            </div>
+            <form id="login" onsubmit="checkUser(); return false;">
+                <input id="nickname" type="text" placeholder="enter your name here" />
+                <button type="submit">Submit</button>
+                <span id="nameCheck"></span>
+            </form>
+
+            <div class="msgContainer">
+                <div class="msglog">
+                    <p onload="displayTime()">
+                    <div id="time"></div>
+                    Welcome,<div id="welcomeUser"></div>, to M&M Chat Project, where beautiful minds share beautiful ideas.
+                    </p>
+                </div>
+                <div class="msginput">
+                    <input id="msg" type="text" style="width: 305px" placeholder="type your message here.." />
+                    <input type="submit" style="width: 50px" value="Post" />
+                </div>
+            </div>
+        </div>
     </body>
 
-    <form id="login">
-        <input id="nickname" type="text" placeholder="enter your name here" />
-        <button onclick="checkUser()" type="submit">Submit</button>
-        <span id="nameCheck"></span>
-    </form>
-
-    <div class="container">
-        <div class="msgheader">
-            <h2>Welcome to M&M Chat Project!</h2>
-        </div>
-        <div class="msgbox">
-        </div>
-        <div class="msginput">
-            <input id="msg" type="text" placeholder="type your message here.." />
-        </div>
-    </div>
 </html>
