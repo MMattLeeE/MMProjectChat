@@ -28,3 +28,15 @@ Objective #1: Build a chat box with basic functionalities
     a. work on displaying real-time clock
     b. only display welcome message when a user is validated
     c. allow user to type in the message when the username is validated
+
+
+12-07-2017: Modification
+
+    a. Reveals chatbox once the username is validated [TEMP fix..used global var]
+    /
+    TODO:
+    a. Current 'login' requires two [ENTER] to reveal a textbox..needs to fix this
+    b. Current 'login' uses a global variable.. change this asap
+    c. Work on displaying a real-time clock
+   
+    

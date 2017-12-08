@@ -17,6 +17,8 @@
         .rmContainer {
             padding-top: 1%;
             padding-left: 5%;
+            padding-bottom: 5%;
+            background-color: lightgrey;
         }
 
         #login {
@@ -64,15 +66,14 @@
             </div>
             <form id="login" onsubmit="checkUser(); return false;">
                 <input id="nickname" type="text" placeholder="enter your name here" />
-                <button type="submit">Submit</button>
+                <button type="submit">Login</button>
                 <span id="nameCheck"></span>
             </form>
 
-            <div class="msgContainer">
+            <div class="msgContainer" style="display:none">
                 <div class="msglog">
-                    <p onload="displayTime()">
-                    <div id="time"></div>
-                    Welcome,<div id="welcomeUser"></div>, to M&M Chat Project, where beautiful minds share beautiful ideas.
+                    <p id="time">
+                    Welcome to M&M Chat Project, where beautiful minds share beautiful ideas.
                     </p>
                 </div>
                 <div class="msginput">

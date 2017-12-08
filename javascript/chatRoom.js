@@ -14,31 +14,47 @@ function checkUser() {
     var myName = document.getElementById("nickname").value;
     var myMsg = document.getElementById("nameCheck");
 
+    window.userStatus = false;
+
     // Check if user successfully follows the nickname rules
     // By checking if the length of the name exceeds desired length
     if(myName.length > 21) {
         myMsg.innerHTML = "Shorten your name. Please try again.";
         // Or if it contains more than alphabets
     } else if(/^[a-zA-Z]+$/.test(myName) === false) {
-        myMsg.innerHTML = "Your name cannot contain special characters. Please try again.";
+        myMsg.innerHTML = "Your name must only contain alphabets. Please try again.";
     } else {
-        myMsg.innerHTML = "Login successful! Welcome " + myName + "!";
+        window.userStatus = true;
+        myMsg.innerHTML = "Login successful. Welcome " + myName + "! " + "Press [ENTER] to continue.";
     }
 
     return myMsg;
 }
 
-function wecolmeMsg(person) {
 
-}
+/*
+ * This portion uses jQuery to have the textbox and chatbox disabled until the user
+ * successfully logs into the application.
+ */
+$(document).ready(function() {
+   $('#login').on('click', 'button', function() {
+      if(window.userStatus === true) {
+          $('.msgContainer').slideDown();
+      }
+   });
+});
+
+
+
+
 
 function displayTime() {
     // Create a Date object
     var currTime = new Date();
 
-    var currHr = currentTime.getHours();
-    var currMin = currentTime.getMinutes();
-    var currSec = currentTime.getSeconds();
+    var currHr = currTime.getHours();
+    var currMin = currTime.getMinutes();
+    var currSec = currTime.getSeconds();
 
     if(currHr < 12) {
         var timeOfDay = "AM";
@@ -48,5 +64,5 @@ function displayTime() {
 
     var completeTime = currHr + ":" + currMin + ":" + currSec + " " + timeOfDay;
 
-    document.getElementById("time").innerHTML = completeTime;
+    document.getElementsByClassName(".msgContainer").find("").innerHTML = completeTime;
 }
