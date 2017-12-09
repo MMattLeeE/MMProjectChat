@@ -18,7 +18,7 @@
             padding-top: 1%;
             padding-left: 5%;
             padding-bottom: 5%;
-            background-color: lightgrey;
+            background-color: rgb(178, 183, 187);
         }
 
         #login {
@@ -26,33 +26,49 @@
             font-size: xx-small;
         }
 
-        .msgContainer > .msglog {
-            width: 360px;
+        .msgContainer {
+            max-width: 390px;
+        }
+
+        .msglog {
+            width: 100%;
             height: 400px;
+            overflow-y: scroll;
             border: 2px solid #000;
             border-radius: 2px;
-            background-color: rgba(128, 128, 128, 0.6);
+            background-color: #6b6b6b;
 
-            color: whitesmoke;
-            overflow-y: scroll;
+            color: rgb(122,193,66);
+            font-weight: bold;
 
             font-size: x-small;
-            padding-top: 1px;
-            padding-left: 7px;
+            padding: 5px;
+        }
+
+        .msg {
+            margin-bottom: 5px;
+        }
+
+        .msginput {
+            width: 100%;
         }
 
         .msgContainer > .msginput input[id="msg"] {
             height: 15px;
-            border: 1px solid rgb(128, 128, 128);
-            border-radius: 5px;
+            border: 1px solid #000;
+            border-radius: 2px;
+            padding: 5px;
+            margin: 0;
         }
 
-        .msgContainer > .msginput input[type="submit"] {
+        #login > button, .msgContainer > .msginput input[type="submit"] {
             padding: 3px;
-            background-color: rgba(128, 128, 128, 0.6);
+            background-color: rgb(45, 89, 128);
             color: whitesmoke;
         }
+
     </style>
+
     <!--
         Currently, the body uses three functions, checkUser() under login form, displayTime()
         under msglog, and welcomeUser() under msglog. First function, checkUser, is used to check
@@ -67,14 +83,17 @@
             <form id="login" onsubmit="checkUser(); return false;">
                 <input id="nickname" type="text" placeholder="enter your name here" />
                 <button type="submit">Login</button>
+                <br/>
+                <br/>
                 <span id="nameCheck"></span>
             </form>
 
             <div class="msgContainer" style="display:none">
-                <div class="msglog">
-                    <p id="time">
-                    Welcome to M&M Chat Project, where beautiful minds share beautiful ideas.
-                    </p>
+                <div class="msglog" id="time">
+                    <div class="msg">
+
+                    </div>
+
                 </div>
                 <div class="msginput">
                     <input id="msg" type="text" style="width: 305px" placeholder="type your message here.." />
@@ -82,6 +101,8 @@
                 </div>
             </div>
         </div>
+        
+        <script src="http://127.0.0.1:8080/socket.io/socket.io.js"></script>
     </body>
 
 </html>

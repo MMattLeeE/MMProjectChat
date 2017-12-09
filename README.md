@@ -39,4 +39,30 @@ Objective #1: Build a chat box with basic functionalities
     b. Current 'login' uses a global variable.. change this asap
     c. Work on displaying a real-time clock
    
+
+12-08-2017: Node and MongoDB
+
+    a. Modified index.html and css for chatbox design and color
+    b. Nodejs and MongoDB installed on Raspberry Pi
+    /
+    Following commands were used:
+    $ sudo curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+    $ sudo apt-get install nodejs
+    /
+    Under project directory, installed socket.io and mongodb
+    $ sudo npm install socket.io
+    $ sudo npm install mongodb
+    /
+    Faced several issues along the way, but the following links helped me install successfully :)
+    1. https://stackoverflow.com/questions/24599119/mongodb-not-working-error-dbpath-data-db-does-not-exist
+    2. https://stackoverflow.com/questions/6478113/unable-to-start-mongodb-local-server
+    /
+    c. Created server.js - have a db listener to record data that are being transmitted via socket
+    /
+    /
+    TODO:
+    a. Debug current issue with server.js
+    b. Current 'login' requires two [ENTER] to reveal a textbox..needs to fix this
+    c. Current 'login' uses a global variable.. change this asap
+    d. Work on displaying a real-time clock
     
